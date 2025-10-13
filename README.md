@@ -1,13 +1,107 @@
-# Welcome to your new ignited app!
+# Allerra
 
-> The latest and greatest boilerplate for Infinite Red opinions
+*A smart allergen detection app powered by computer vision.*
 
-This is the boilerplate that [Infinite Red](https://infinite.red) uses as a way to test bleeding-edge changes to our React Native stack.
+## Overview
 
-- [Quick start documentation](https://github.com/infinitered/ignite/blob/master/docs/boilerplate/Boilerplate.md)
-- [Full documentation](https://github.com/infinitered/ignite/blob/master/docs/README.md)
+**Allerra** is a **React Native** app that helps users identify potential allergens in their meals using **image recognition**.
+By taking a photo of their food, users can instantly see if it may contain allergens based on their personal allergen profile.
 
-## Getting Started
+This app is built with the **Ignite** boilerplate and powered by a **custom-trained Convolutional Neural Network (CNN)** for food classification and allergen detection.
+
+---
+
+## Features
+
+* **Photo-Based Detection** – Snap a picture of your food and let the AI analyze it.
+* **Custom CNN Model** – Uses a deep learning model trained on allergen-specific food datasets.
+* **Personal Allergen Profiles** – Users can input and manage their own allergen lists (e.g. nuts, dairy, eggs).
+* **Instant Risk Alerts** – Warns if the detected food may contain allergens.
+* **Ignite Boilerplate** – Built on [Ignite](https://github.com/infinitered/ignite) for a scalable, well-structured React Native foundation.
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer                         | Technology                                   |
+| ----------------------------- | -------------------------------------------- |
+| **Frontend**                  | React Native (with Ignite)                   |
+| **AI Model**                  | Custom-trained CNN (TensorFlow / PyTorch)    |
+| **Backend**                   | Node.js / Firebase (for data sync & storage) |
+| **Camera & Image Processing** | Expo Camera / Vision API                     |
+| **State Management**          | MobX-State-Tree (from Ignite)                |
+
+---
+
+## 🧩 Project Structure
+
+```
+allerra/
+├── app/
+│   ├── components/
+│   ├── models/
+│   ├── screens/
+│   ├── services/
+│   ├── utils/
+│   └── App.tsx
+├── ignite/
+│   └── boilerplate/
+├── assets/
+│   └── images/
+├── package.json
+└── README.md
+```
+
+---
+
+## ⚙️ Setup & Installation
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/yourusername/allerra.git
+   cd allerra
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Run on device or emulator**
+
+   ```bash
+   npx expo start
+   ```
+
+   or
+
+   ```bash
+   npm run android
+   # or
+   npm run ios
+   ```
+
+---
+
+## 🧠 Model Integration
+
+The CNN model is trained separately and exported as a **TensorFlow Lite (TFLite)**  model for mobile inference.
+
+---
+
+## 🔮 Future Roadmap
+
+* ☁️ Cloud model updates for improved accuracy
+* 🍴 Integration with restaurant menus / barcode scanning
+* 💬 Community dataset contributions
+
+---
+
+
+
+<!-- ## Getting Started
 
 ```bash
 npm install --legacy-peer-deps
@@ -74,4 +168,4 @@ Read our [Upgrade Guide](https://ignitecookbook.com/docs/recipes/UpdatingIgnite)
 
 💬 Join us on [Slack](https://join.slack.com/t/infiniteredcommunity/shared_invite/zt-1f137np4h-zPTq_CbaRFUOR_glUFs2UA) to discuss.
 
-📰 Make our Editor-in-chief happy by [reading the React Native Newsletter](https://reactnativenewsletter.com/).
+📰 Make our Editor-in-chief happy by [reading the React Native Newsletter](https://reactnativenewsletter.com/). -->
