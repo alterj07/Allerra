@@ -64,26 +64,17 @@ export function CustomTabBar({ state, descriptors, navigation }: BottomTabBarPro
               onPress={onPress}
               onLongPress={onLongPress}
               style={[
-                themed($tabItem),
+                !isCamera && themed($tabItem),
                 isCamera && themed($cameraTabItem),
-                isFocused && themed($activeTabItem),
+                isFocused && !isCamera && themed($activeTabItem),
+                isFocused && isCamera && themed($cameraActiveTabLabel),
               ]}
             >
               <View style={[!isCamera && themed($tabContent), isCamera && themed($cameraTabContent)]}>
                 <Icon
                   icon={isCamera ? "camera" : route.name === "Settings" ? "settings" : "more"}
-                  color={isCamera ? theme.colors.tint : (isFocused ? theme.colors.tint : theme.colors.tintInactive)}
+                  color={isCamera ? theme.colors.tint : ((isFocused) ? theme.colors.tint : theme.colors.tintInactive)}
                 />
-                {/* {!isCamera && (
-                  <Text
-                    style={[
-                      themed($tabLabel),
-                      isFocused && !isCamera && themed($activeTabLabel),
-                      isFocused && isCamera && themed($cameraActiveTabLabel),
-                    ]}
-                  >
-                  </Text>
-                )} */}
               </View>
             </TouchableOpacity>
           )
@@ -121,9 +112,10 @@ const $cameraTabContent: ThemedStyle<ViewStyle> = ({ spacing }) => ({
 
 const $cameraTabItem: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
   backgroundColor: colors.background,
-  borderRadius: 35,
-  width: 70,
+  // color: colors.text,
+  borderRadius: 50,
   height: 70,
+  width: 70,
   marginBottom: 20,
   paddingTop: 20,
   borderWidth: 3,
@@ -136,34 +128,21 @@ const $cameraTabItem: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
   shadowOpacity: 0.3,
   shadowRadius: 8,
   elevation: 8,
+  alignItems: "center",
+  justifyContent: "center",
 })
 
 const $activeTabItem: ThemedStyle<ViewStyle> = ({ colors }) => ({
-  backgroundColor: colors.palette.neutral100,
   borderRadius: 35,
   // paddingTop: spacing.lg,
   // marginVertical: 20,
 })
 
 const $cameraActiveTabLabel: ThemedStyle<ViewStyle> = ({ colors }) => ({
-  backgroundColor: colors.tint,
-  borderRadius: 35,
-  height: 70,
-  // backgroundColor: colors.background,
-  // borderRadius: 35,
-  width: 70,
-  // height: 70,
-  marginBottom: 20,
-  borderWidth: 3,
-  borderColor: colors.tint,
-  shadowColor: colors.tint,
-  shadowOffset: {
-    width: 0,
-    height: 4,
-  },
-  shadowOpacity: 0.3,
-  shadowRadius: 8,
-  elevation: 8,
+  // borderRadius: 50,
+  backgroundColor: colors.tintInactive,
+  color: colors.background,
+
 })
 
 const $tabContent: ThemedStyle<ViewStyle> = () => ({
