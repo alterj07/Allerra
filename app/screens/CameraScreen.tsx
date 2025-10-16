@@ -9,6 +9,8 @@ import { DemoTabScreenProps } from "@/navigators/navigationTypes"
 import { useAppTheme } from "@/theme/context"
 import type { ThemedStyle } from "@/theme/types"
 
+import { RefreshCcwDot } from 'lucide-react-native'
+
 export const CameraScreen: FC<DemoTabScreenProps<"Camera">> = function CameraScreen(_props) {
   const { themed, theme } = useAppTheme()
   const camera = useRef<Camera>(null)
@@ -156,7 +158,7 @@ export const CameraScreen: FC<DemoTabScreenProps<"Camera">> = function CameraScr
             style={themed($controlButton)}
             onPress={toggleCameraPosition}
           >
-            <Text style={themed($controlButtonText)}>🔄</Text>
+            <RefreshCcwDot color="white" size={48} />
           </TouchableOpacity>
 
           {/* Capture Button */}

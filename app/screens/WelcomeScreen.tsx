@@ -13,6 +13,8 @@ import type { ThemedStyle } from "@/theme/types"
 import { useHeader } from "@/utils/useHeader"
 import { useSafeAreaInsetsStyle } from "@/utils/useSafeAreaInsetsStyle"
 
+import { RefreshCcwDot } from 'lucide-react-native'
+
 const welcomeLogo = require("@assets/images/logo.png")
 const welcomeFace = require("@assets/images/welcome-face.png")
 
@@ -55,6 +57,7 @@ export const WelcomeScreen: FC<WelcomeScreenProps> = function WelcomeScreen(_pro
           resizeMode="contain"
           tintColor={theme.colors.palette.neutral900}
         />
+        <RefreshCcwDot color="white" size={48} />
       </View>
 
       <View style={themed([$bottomContainer, $bottomContainerInsets])}>
