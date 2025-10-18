@@ -91,23 +91,6 @@ export const SettingsScreen: FC<DemoTabScreenProps<"Settings">> = function Setti
       <View style={themed($itemsContainer)}>
         <Button onPress={toggleTheme} text={`Toggle Theme: ${themeContext}`} />
       </View>
-      <View style={themed($itemsContainer)}>
-        <ListItem
-          LeftComponent={
-            <View style={themed($item)}>
-              <Text preset="bold">App Id</Text>
-              <Text>{Application.applicationId}</Text>
-            </View>
-          }
-        />
-        <ListItem
-          LeftComponent={
-            <View style={themed($item)}>
-              <Text preset="bold">App Name</Text>
-              <Text>{Application.applicationName}</Text>
-            </View>
-          }
-        />
         <ListItem
           LeftComponent={
             <View style={themed($item)}>
@@ -116,38 +99,10 @@ export const SettingsScreen: FC<DemoTabScreenProps<"Settings">> = function Setti
             </View>
           }
         />
-        <ListItem
-          LeftComponent={
-            <View style={themed($item)}>
-              <Text preset="bold">App Build Version</Text>
-              <Text>{Application.nativeBuildVersion}</Text>
-            </View>
-          }
-        />
-        <ListItem
-          LeftComponent={
-            <View style={themed($item)}>
-              <Text preset="bold">Hermes Enabled</Text>
-              <Text>{String(usingHermes)}</Text>
-            </View>
-          }
-        />
-        <ListItem
-          LeftComponent={
-            <View style={themed($item)}>
-              <Text preset="bold">Fabric Enabled</Text>
-              <Text>{String(usingFabric)}</Text>
-            </View>
-          }
-        />
-      </View>
-      <View style={themed($buttonContainer)}>
-        <Button style={themed($button)} tx="demoDebugScreen:reactotron" onPress={demoReactotron} />
-        <Text style={themed($hint)} tx={`demoDebugScreen:${Platform.OS}ReactotronHint` as const} />
-      </View>
       <View style={themed($buttonContainer)}>
         <Button style={themed($button)} tx="common:logOut" onPress={logout} />
       </View>
+      
     </Screen>
   )
 }
