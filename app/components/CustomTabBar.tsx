@@ -15,11 +15,16 @@ import { useAppTheme } from "@/theme/context"
 import type { ThemedStyle } from "@/theme/types"
 import { spacing } from "@/theme/spacing"
 
+import { Camera } from 'lucide-react-native'
+import { Settings } from 'lucide-react-native'
+import { Ellipsis } from 'lucide-react-native'
+
 const { width: screenWidth } = Dimensions.get("window")
 
 export function CustomTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
   const { bottom } = useSafeAreaInsets()
   const { themed, theme } = useAppTheme()
+  const tabIconTint = (isFocused: boolean) => (isFocused ? theme.colors.tint : theme.colors.tintInactive)
 
   return (
     <View style={themed($tabBarContainer)}>
@@ -71,10 +76,12 @@ export function CustomTabBar({ state, descriptors, navigation }: BottomTabBarPro
               ]}
             >
               <View style={[!isCamera && themed($tabContent), isCamera && themed($cameraTabContent)]}>
-                <Icon
-                  icon={isCamera ? "camera" : route.name === "Settings" ? "settings" : "more"}
+                {/* <Icon
+                  // icon= 
+                  // {isCamera ? "camera" : route.name === "Settings" ? "settings" : "more"}
                   color={isCamera ? theme.colors.tint : ((isFocused) ? theme.colors.tint : theme.colors.tintInactive)}
-                />
+                /> */}
+              {isCamera ? <Camera color = {tabIconTint(isFocused)}/> : route.name === "Settings" ? <Settings color = {tabIconTint(isFocused)}/> : <Ellipsis color = {tabIconTint(isFocused)}/>}
               </View>
             </TouchableOpacity>
           )
